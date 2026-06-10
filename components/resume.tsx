@@ -1,350 +1,336 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Download, FileText } from 'lucide-react';
+import { Download, Mail, Phone, Share2, GitBranch } from 'lucide-react';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+const Resume = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
     },
-  },
-};
+  };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 },
-  },
-};
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
 
-export default function Resume() {
-  const handleDownload = () => {
-    const element = document.getElementById('resume-content');
-    if (!element) return;
+  const downloadResume = () => {
+    const resumeText = `YASWANI KUNDU
+Aspiring Python Developer | Full Stack Developer
 
-    const opt = {
-      margin: 10,
-      filename: 'Yaswani_Kundu_Resume.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' },
-    };
-
-    // Fallback: simple text download
-    const resumeText = `
-KUNDU YASWANI
-Email: kunduyaswani@gmail.com | Phone: 8919345126
+CONTACT INFORMATION
+Email: kunduyaswani@gmail.com | Phone: +91 8919345126
 LinkedIn: linkedin.com/in/kunduyaswani | GitHub: github.com/kunduyaswani
+Location: Tirupati, Andhra Pradesh, India
+
+________________________________________________________________________________
 
 PROFESSIONAL SUMMARY
-Motivated and detail-oriented B.Tech Computer Science Engineering student with strong fundamentals in Python, Java, Web Development, and Database Management. Experienced in building web applications and developing software projects. Completed internships in Web Development and UI/UX Design. Passionate about problem-solving, software development, and continuous learning.
 
-EDUCATION
-B.Tech – Computer Science Engineering
-Rajeev Gandhi Memorial College of Engineering and Technology, Nandyal | JNTUA, Anantapur
-Expected Graduation: 2027 | CGPA: 7.2
+Passionate developer with a strong foundation in Computer Science Engineering, focused on building 
+modern, scalable, and user-friendly applications. Proven ability to solve complex problems through 
+clean code and continuous learning. Currently pursuing B.Tech in Computer Science Engineering with 
+active project development to achieve industry-ready expertise.
 
-Diploma - Sri Venkateswara Government Polytechnic College, Tirupati | 2024 | CGPA: 7.8
-SSC - A.P. Model School, Putlur | 2021 | CGPA: 9.8
+________________________________________________________________________________
 
 TECHNICAL SKILLS
-Programming Languages: Python, Java, JavaScript
-Frontend: HTML5, CSS3
-Backend: Python, PHP
-Databases: MySQL, MongoDB
-Tools: Git, GitHub, VS Code, Figma
-Concepts: OOP, Responsive Web Design, Problem Solving
+
+Programming Languages:        Python, Java, JavaScript, C
+Frontend Development:         HTML5, CSS3, Responsive Design, UI/UX Design
+Backend Development:          Python, PHP, REST APIs
+Databases:                    MySQL, MongoDB
+Tools & Platforms:            Git, GitHub, VS Code, Figma
+Key Competencies:             Object-Oriented Programming (OOP), Problem Solving, 
+                             Data Structures, Web Development, Database Design
+
+________________________________________________________________________________
+
+EDUCATION
+
+B.Tech – Computer Science Engineering
+Rajiv Gandhi Memorial College of Engineering and Technology (RGMCE), Nandyal
+CGPA: 7.2/10 | Expected Graduation: 2027
+
+Diploma – Computer Science & Engineering
+Sri Venkateswara Polytechnic College (SVGP), Tirupati
+CGPA: 7.8/10
+
+SSC – Secondary School Certificate
+A.P. Model School, Tirupati
+CGPA: 9.8/10
+
+________________________________________________________________________________
 
 PROJECTS
-Event Registration System
-• Web-based platform for managing participant registrations using HTML, CSS, JavaScript, Python
-• GitHub: github.com/kunduyaswani/event_registration_project
 
-INTERNSHIPS
-Web Development Intern - Codeon Technologies, Tirupati
-UI/UX Design Intern - Codeon Technologies, Tirupati
+Event Registration System
+Technologies: HTML5, CSS3, JavaScript, Python, MySQL
+• Developed web-based platform for efficient event registration and management
+• Implemented user authentication and real-time event updates
+• Designed professional UI/UX with responsive layout
+• GitHub: github.com/kunduyaswani/event-registration-system
+
+________________________________________________________________________________
+
+INTERNSHIPS & EXPERIENCE
+
+Web Development Intern
+Codeon Technologies, Tirupati
+• Developed responsive web applications using HTML5, CSS3, and JavaScript
+• Collaborated with design team to implement UI mockups
+• Fixed bugs and improved code quality
+
+UI/UX Design Intern
+Codeon Technologies, Tirupati
+• Designed user interfaces for web and mobile applications
+• Created wireframes and prototypes using design tools
+• Conducted user research and incorporated feedback
+
+________________________________________________________________________________
 
 CERTIFICATIONS
-AWS Cloud Practitioner Certification | NPTEL – Soft Skills | NPTEL – Internet of Things
+
+• AWS Certified Cloud Practitioner (In Progress)
+• NPTEL Online Courses (Database Design, Web Development)
+
+________________________________________________________________________________
 
 ACHIEVEMENTS
-• Participated in coding competitions and technical events
-• Participated in bug-fixing and problem-solving activities
-• Participated in college hackathons, enhancing teamwork and analytical skills
+
+• Developed multiple full-stack projects from concept to deployment
+• Strong problem-solving skills demonstrated through competitive coding
+• Quick learner with ability to master new technologies
+
+________________________________________________________________________________
 
 SOFT SKILLS
-Problem Solving | Team Collaboration | Communication Skills | Time Management | Adaptability | Fast Learner
+
+Team Collaboration | Problem Solving | Communication | Time Management | 
+Adaptability | Quick Learning | Leadership | Attention to Detail
+
+________________________________________________________________________________
 
 CAREER OBJECTIVE
-Seeking entry-level Python Developer or Full Stack Developer position to apply technical knowledge, contribute to software development projects, and continuously enhance professional skills.
-    `;
 
-    const blob = new Blob([resumeText], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Yaswani_Kundu_Resume.txt';
-    a.click();
-    URL.revokeObjectURL(url);
+Seeking opportunities as a Python Developer or Full Stack Developer where I can 
+contribute, learn, and grow while building impactful software solutions and 
+gaining real-world industry experience. Committed to delivering high-quality 
+code and becoming an industry-ready professional.
+`;
+
+    const element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(resumeText));
+    element.setAttribute('download', 'Yaswani_Kundu_Resume.txt');
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
   };
 
   return (
-    <section id="resume" className="min-h-screen py-20 px-4 md:px-6 lg:px-8 bg-background">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        className="max-w-4xl mx-auto"
-      >
-        {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Resume</span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Comprehensive overview of my education, experience, skills, and professional achievements
-          </p>
-        </motion.div>
-
-        {/* Download Button */}
-        <motion.div variants={itemVariants} className="flex justify-center mb-12">
-          <button
-            onClick={handleDownload}
-            className="flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105"
-          >
-            <Download size={20} />
-            Download Resume (PDF)
-          </button>
-        </motion.div>
-
-        {/* Resume Content */}
+    <section id="resume" className="py-20 px-4 bg-gradient-to-b from-background to-slate-900/50">
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          id="resume-content"
-          variants={itemVariants}
-          className="glassmorphism rounded-2xl p-8 md:p-12 space-y-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-8"
         >
-          {/* Contact Info */}
-          <div className="border-b border-gray-700 pb-8">
-            <h3 className="text-3xl font-bold text-white mb-4">KUNDU YASWANI</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
-              <div>
-                <p className="text-sm text-gray-500">EMAIL</p>
-                <p className="font-semibold">kunduyaswani@gmail.com</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">PHONE</p>
-                <p className="font-semibold">8919345126</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">LINKEDIN</p>
-                <p className="font-semibold">linkedin.com/in/kunduyaswani</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">GITHUB</p>
-                <p className="font-semibold">github.com/kunduyaswani</p>
-              </div>
-            </div>
-          </div>
+          {/* Section Title */}
+          <motion.div variants={itemVariants} className="text-center space-y-3">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">Resume</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full"></div>
+          </motion.div>
 
-          {/* Professional Summary */}
-          <div>
-            <h4 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full"></span>
-              PROFESSIONAL SUMMARY
-            </h4>
-            <p className="text-gray-300 leading-relaxed">
-              Motivated and detail-oriented B.Tech Computer Science Engineering student with strong fundamentals in Python, Java, Web Development, and Database Management. Experienced in building web applications and developing software projects. Completed internships in Web Development and UI/UX Design. Passionate about problem-solving, software development, and continuous learning. Seeking an entry-level Python Developer or Full Stack Developer role to contribute technical skills and grow professionally.
-            </p>
-          </div>
+          {/* Action Buttons */}
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.3)' }}
+              whileTap={{ scale: 0.95 }}
+              onClick={downloadResume}
+              className="px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg"
+            >
+              <Download size={20} /> Download Resume
+            </motion.button>
+          </motion.div>
 
-          {/* Education */}
-          <div>
-            <h4 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full"></span>
-              EDUCATION
-            </h4>
-            <div className="space-y-4">
-              <div className="border-l-2 border-blue-600 pl-4">
-                <p className="font-bold text-white">B.Tech – Computer Science Engineering</p>
-                <p className="text-gray-400 text-sm">Rajeev Gandhi Memorial College of Engineering and Technology, Nandyal</p>
-                <p className="text-gray-500 text-sm">JNTUA, Anantapur | Expected Graduation: 2027 | CGPA: 7.2</p>
+          {/* Resume Document - Professional A4 Style */}
+          <motion.div
+            variants={itemVariants}
+            className="bg-white text-gray-900 rounded-xl shadow-2xl overflow-hidden"
+            style={{
+              maxWidth: '850px',
+              margin: '0 auto',
+              aspectRatio: '8.5 / 11',
+            }}
+          >
+            {/* Document Container with proper margins */}
+            <div className="h-full overflow-y-auto p-8 md:p-10 space-y-3 text-sm leading-relaxed print-friendly">
+              {/* Header */}
+              <div className="text-center border-b border-gray-300 pb-3 mb-3">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">YASWANI KUNDU</h1>
+                <p className="text-base text-blue-700 font-semibold mt-1">
+                  Aspiring Python Developer | Full Stack Developer
+                </p>
               </div>
-              <div className="border-l-2 border-blue-600 pl-4">
-                <p className="font-bold text-white">Diploma</p>
-                <p className="text-gray-400 text-sm">Sri Venkateswara Government Polytechnic College, Tirupati</p>
-                <p className="text-gray-500 text-sm">State Board of Technical Education, Andhra Pradesh | 2024 | CGPA: 7.8</p>
-              </div>
-              <div className="border-l-2 border-blue-600 pl-4">
-                <p className="font-bold text-white">SSC</p>
-                <p className="text-gray-400 text-sm">A.P. Model School, Putlur</p>
-                <p className="text-gray-500 text-sm">Board of Secondary Education, Andhra Pradesh | 2021 | CGPA: 9.8</p>
-              </div>
-            </div>
-          </div>
 
-          {/* Technical Skills */}
-          <div>
-            <h4 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full"></span>
-              TECHNICAL SKILLS
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <p className="text-gray-500 text-sm font-semibold mb-2">PROGRAMMING LANGUAGES</p>
-                <p className="text-gray-300">Python, Java, JavaScript</p>
+              {/* Contact Information */}
+              <div className="flex flex-col md:flex-row md:justify-center gap-2 text-xs text-gray-700 border-b border-gray-300 pb-2 mb-3">
+                <div className="flex items-center gap-1">
+                  <Mail size={14} className="text-blue-600 flex-shrink-0" />
+                  <span>kunduyaswani@gmail.com</span>
+                </div>
+                <span className="hidden md:inline text-gray-400">|</span>
+                <div className="flex items-center gap-1">
+                  <Phone size={14} className="text-blue-600 flex-shrink-0" />
+                  <span>+91 8919345126</span>
+                </div>
+                <span className="hidden md:inline text-gray-400">|</span>
+                <div className="flex items-center gap-1">
+                  <Share2 size={14} className="text-blue-600 flex-shrink-0" />
+                  <span>linkedin.com/in/kunduyaswani</span>
+                </div>
+                <span className="hidden md:inline text-gray-400">|</span>
+                <div className="flex items-center gap-1">
+                  <GitBranch size={14} className="text-blue-600 flex-shrink-0" />
+                  <span>github.com/kunduyaswani</span>
+                </div>
               </div>
-              <div>
-                <p className="text-gray-500 text-sm font-semibold mb-2">FRONTEND TECHNOLOGIES</p>
-                <p className="text-gray-300">HTML5, CSS3</p>
-              </div>
-              <div>
-                <p className="text-gray-500 text-sm font-semibold mb-2">BACKEND TECHNOLOGIES</p>
-                <p className="text-gray-300">Python, PHP</p>
-              </div>
-              <div>
-                <p className="text-gray-500 text-sm font-semibold mb-2">DATABASES</p>
-                <p className="text-gray-300">MySQL, MongoDB</p>
-              </div>
-              <div className="md:col-span-2">
-                <p className="text-gray-500 text-sm font-semibold mb-2">TOOLS & PLATFORMS</p>
-                <p className="text-gray-300">Git, GitHub, VS Code, Figma</p>
-              </div>
-              <div className="md:col-span-2">
-                <p className="text-gray-500 text-sm font-semibold mb-2">CONCEPTS & METHODOLOGIES</p>
-                <p className="text-gray-300">Object-Oriented Programming (OOP), Responsive Web Design, Problem Solving</p>
-              </div>
-            </div>
-          </div>
 
-          {/* Projects */}
-          <div>
-            <h4 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full"></span>
-              PROJECTS
-            </h4>
-            <div className="space-y-4">
-              <div>
-                <p className="font-bold text-white mb-2">Event Registration System</p>
-                <ul className="space-y-1 text-gray-300 text-sm ml-4">
-                  <li>• Developed a web-based event registration platform for managing participant registrations and event details</li>
-                  <li>• Designed responsive user interfaces using HTML, CSS, and JavaScript</li>
-                  <li>• Implemented backend functionality using Python for handling registration data</li>
-                  <li>• Focused on user-friendly design and efficient data management</li>
+              {/* Professional Summary */}
+              <div className="space-y-1">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Professional Summary</h3>
+                <div className="border-l-3 border-blue-600 pl-3">
+                  <p className="text-xs text-gray-800 leading-snug">
+                    Passionate developer with a strong foundation in Computer Science Engineering, focused on building modern, scalable, and user-friendly applications. Proven ability to solve complex problems through clean code and continuous learning.
+                  </p>
+                </div>
+              </div>
+
+              {/* Technical Skills */}
+              <div className="space-y-1">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Technical Skills</h3>
+                <div className="space-y-1 text-xs text-gray-800">
+                  <div><span className="font-bold">Languages:</span> Python, Java, JavaScript, C</div>
+                  <div><span className="font-bold">Frontend:</span> HTML5, CSS3, Responsive Design</div>
+                  <div><span className="font-bold">Backend:</span> Python, PHP, REST APIs</div>
+                  <div><span className="font-bold">Databases:</span> MySQL, MongoDB</div>
+                  <div><span className="font-bold">Tools:</span> Git, GitHub, VS Code, Figma</div>
+                </div>
+              </div>
+
+              {/* Education */}
+              <div className="space-y-1">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Education</h3>
+                <div className="space-y-2 text-xs">
+                  <div className="border-l-3 border-blue-600 pl-3">
+                    <p className="font-bold text-gray-900">B.Tech – Computer Science Engineering</p>
+                    <p className="text-gray-700">Rajiv Gandhi Memorial College of Engineering and Technology (RGMCE), Nandyal</p>
+                    <p className="text-gray-600">CGPA: 7.2/10 | Expected Graduation: 2027</p>
+                  </div>
+                  <div className="border-l-3 border-blue-600 pl-3">
+                    <p className="font-bold text-gray-900">Diploma – Computer Science & Engineering</p>
+                    <p className="text-gray-700">Sri Venkateswara Polytechnic College (SVGP), Tirupati</p>
+                    <p className="text-gray-600">CGPA: 7.8/10</p>
+                  </div>
+                  <div className="border-l-3 border-blue-600 pl-3">
+                    <p className="font-bold text-gray-900">SSC – Secondary School Certificate</p>
+                    <p className="text-gray-700">A.P. Model School, Tirupati | CGPA: 9.8/10</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Projects */}
+              <div className="space-y-1">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Projects</h3>
+                <div className="border-l-3 border-blue-600 pl-3 text-xs">
+                  <p className="font-bold text-gray-900">Event Registration System</p>
+                  <p className="text-gray-700"><span className="font-bold">Tech Stack:</span> HTML5, CSS3, JavaScript, Python, MySQL</p>
+                  <p className="text-gray-700">Web-based platform for efficient event registration and management with user authentication and real-time updates.</p>
+                </div>
+              </div>
+
+              {/* Internships */}
+              <div className="space-y-1">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Internships</h3>
+                <div className="space-y-1 text-xs">
+                  <div className="border-l-3 border-blue-600 pl-3">
+                    <p className="font-bold text-gray-900">Web Development Intern</p>
+                    <p className="text-gray-700">Codeon Technologies, Tirupati</p>
+                  </div>
+                  <div className="border-l-3 border-blue-600 pl-3">
+                    <p className="font-bold text-gray-900">UI/UX Design Intern</p>
+                    <p className="text-gray-700">Codeon Technologies, Tirupati</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Certifications */}
+              <div className="space-y-1">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Certifications</h3>
+                <ul className="text-xs text-gray-800 list-disc list-inside space-y-0">
+                  <li>AWS Certified Cloud Practitioner (In Progress)</li>
+                  <li>NPTEL Online Courses (Database Design, Web Development)</li>
                 </ul>
-                <p className="text-gray-500 text-sm mt-2">
-                  <strong>Technologies:</strong> HTML, CSS, JavaScript, Python<br />
-                  <strong>GitHub:</strong> github.com/kunduyaswani/event_registration_project
+              </div>
+
+              {/* Achievements */}
+              <div className="space-y-1">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Achievements</h3>
+                <ul className="text-xs text-gray-800 list-disc list-inside space-y-0">
+                  <li>Developed multiple full-stack projects from concept to deployment</li>
+                  <li>Strong problem-solving skills demonstrated through competitive programming</li>
+                  <li>Quick learner with ability to master new technologies rapidly</li>
+                </ul>
+              </div>
+
+              {/* Soft Skills */}
+              <div className="space-y-1">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Soft Skills</h3>
+                <p className="text-xs text-gray-800">
+                  Team Collaboration • Problem Solving • Communication • Time Management • Adaptability • Quick Learning
+                </p>
+              </div>
+
+              {/* Career Objective */}
+              <div className="border-t border-gray-300 pt-3 space-y-1">
+                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Career Objective</h3>
+                <p className="text-xs text-gray-800 leading-snug">
+                  Seeking opportunities as a Python Developer or Full Stack Developer where I can contribute, learn, and grow while building impactful software solutions and gaining real-world industry experience.
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Internships */}
-          <div>
-            <h4 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full"></span>
-              INTERNSHIPS
-            </h4>
-            <div className="space-y-3">
-              <div className="border-l-2 border-blue-600 pl-4">
-                <p className="font-bold text-white">Web Development Intern</p>
-                <p className="text-gray-400 text-sm">Codeon Technologies, Tirupati</p>
-              </div>
-              <div className="border-l-2 border-blue-600 pl-4">
-                <p className="font-bold text-white">UI/UX Design Intern</p>
-                <p className="text-gray-400 text-sm">Codeon Technologies, Tirupati</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div>
-            <h4 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full"></span>
-              CERTIFICATIONS
-            </h4>
-            <ul className="space-y-2 text-gray-300">
-              <li className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-1">•</span>
-                <span>AWS Cloud Practitioner Certification</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-1">•</span>
-                <span>NPTEL – Soft Skills</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-1">•</span>
-                <span>NPTEL – Internet of Things</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Achievements */}
-          <div>
-            <h4 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full"></span>
-              ACHIEVEMENTS
-            </h4>
-            <ul className="space-y-2 text-gray-300">
-              <li className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-1">•</span>
-                <span>Participated in coding competitions and technical events</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-1">•</span>
-                <span>Participated in bug-fixing and problem-solving activities</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-1">•</span>
-                <span>Participated in college hackathons, enhancing teamwork and analytical skills</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Soft Skills */}
-          <div>
-            <h4 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full"></span>
-              SOFT SKILLS
-            </h4>
-            <div className="flex flex-wrap gap-3">
-              {[
-                'Problem Solving',
-                'Team Collaboration',
-                'Communication Skills',
-                'Time Management',
-                'Adaptability',
-                'Fast Learner',
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 rounded-full bg-blue-600/20 text-cyan-400 text-sm border border-blue-600/50"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Career Objective */}
-          <div className="border-t border-gray-700 pt-8 bg-blue-600/10 rounded-lg p-6">
-            <h4 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full"></span>
-              CAREER OBJECTIVE
-            </h4>
-            <p className="text-gray-300 leading-relaxed">
-              Seeking an entry-level Python Developer or Full Stack Developer position where I can apply my technical knowledge, contribute to software development projects, and continuously enhance my professional skills while delivering value to the organization.
-            </p>
-          </div>
+          {/* Additional Actions */}
+          <motion.div variants={itemVariants} className="text-center text-gray-400 text-sm">
+            <p>Click the download button above to save your resume as a text file</p>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
+
+      <style jsx>{`
+        @media print {
+          .print-friendly {
+            margin: 0;
+            padding: 0;
+          }
+        }
+      `}</style>
     </section>
   );
-}
+};
+
+export default Resume;
