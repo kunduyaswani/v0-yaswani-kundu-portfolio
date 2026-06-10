@@ -67,8 +67,8 @@ Sri Venkateswara Polytechnic College (SVGP), Tirupati
 CGPA: 7.8/10
 
 SSC – Secondary School Certificate
-A.P. Model School, Tirupati
-CGPA: 9.8/10
+A.P. Model School, Putlur
+2021 | CGPA: 9.8/10
 
 ________________________________________________________________________________
 
@@ -101,16 +101,17 @@ ________________________________________________________________________________
 
 CERTIFICATIONS
 
-• AWS Certified Cloud Practitioner (In Progress)
-• NPTEL Online Courses (Database Design, Web Development)
+• AWS Cloud Practitioner Certification
+• NPTEL Online Course – Soft Skills
+• NPTEL Online Course – Internet of Things
 
 ________________________________________________________________________________
 
 ACHIEVEMENTS
 
-• Developed multiple full-stack projects from concept to deployment
-• Strong problem-solving skills demonstrated through competitive coding
-• Quick learner with ability to master new technologies
+• Participated in coding competitions and technical events.
+• Engaged in bug-fixing and problem-solving activities.
+• Participated in college hackathons, enhancing teamwork and analytical skills.
 
 ________________________________________________________________________________
 
@@ -247,7 +248,8 @@ code and becoming an industry-ready professional.
                   </div>
                   <div className="border-l-3 border-blue-600 pl-3">
                     <p className="font-bold text-gray-900">SSC – Secondary School Certificate</p>
-                    <p className="text-gray-700">A.P. Model School, Tirupati | CGPA: 9.8/10</p>
+                    <p className="text-gray-700">A.P. Model School, Putlur</p>
+                    <p className="text-gray-600">Board of Secondary Education, Andhra Pradesh | 2021 | CGPA: 9.8/10</p>
                   </div>
                 </div>
               </div>
@@ -281,8 +283,9 @@ code and becoming an industry-ready professional.
               <div className="space-y-1">
                 <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Certifications</h3>
                 <ul className="text-xs text-gray-800 list-disc list-inside space-y-0">
-                  <li>AWS Certified Cloud Practitioner (In Progress)</li>
-                  <li>NPTEL Online Courses (Database Design, Web Development)</li>
+                  <li>AWS Cloud Practitioner Certification</li>
+                  <li>NPTEL Online Course – Soft Skills</li>
+                  <li>NPTEL Online Course – Internet of Things</li>
                 </ul>
               </div>
 
@@ -290,9 +293,9 @@ code and becoming an industry-ready professional.
               <div className="space-y-1">
                 <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Achievements</h3>
                 <ul className="text-xs text-gray-800 list-disc list-inside space-y-0">
-                  <li>Developed multiple full-stack projects from concept to deployment</li>
-                  <li>Strong problem-solving skills demonstrated through competitive programming</li>
-                  <li>Quick learner with ability to master new technologies rapidly</li>
+                  <li>Participated in coding competitions and technical events.</li>
+                  <li>Engaged in bug-fixing and problem-solving activities.</li>
+                  <li>Participated in college hackathons, enhancing teamwork and analytical skills.</li>
                 </ul>
               </div>
 
