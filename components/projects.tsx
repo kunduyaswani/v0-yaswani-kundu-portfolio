@@ -12,30 +12,6 @@ const PROJECTS = [
     github: 'https://github.com/kunduyaswani',
     demo: '#',
   },
-  {
-    title: 'ATM Simulation System',
-    description: 'A Python-based ATM simulator implementing deposit, withdrawal, balance enquiry, and transaction management.',
-    tech: ['Python'],
-    image: 'bg-gradient-to-br from-purple-600 to-pink-600',
-    github: 'https://github.com/kunduyaswani',
-    demo: '',
-  },
-  {
-    title: 'Student Management System',
-    description: 'A console-based application to manage student records and operations efficiently.',
-    tech: ['Python'],
-    image: 'bg-gradient-to-br from-cyan-600 to-blue-600',
-    github: 'https://github.com/kunduyaswani',
-    demo: '',
-  },
-  {
-    title: 'Quiz Application',
-    description: 'An interactive quiz application with score tracking and multiple-choice questions.',
-    tech: ['Python'],
-    image: 'bg-gradient-to-br from-orange-600 to-red-600',
-    github: 'https://github.com/kunduyaswani',
-    demo: '',
-  },
 ];
 
 export default function Projects() {
@@ -80,14 +56,14 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="flex justify-center"
         >
           {PROJECTS.map((project, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
               whileHover={{ y: -10 }}
-              className="group glassmorphism rounded-2xl overflow-hidden cursor-pointer transition-all duration-300"
+              className="group glassmorphism rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 max-w-2xl w-full"
             >
               {/* Project Image */}
               <div className={`${project.image} h-48 relative overflow-hidden`}>
