@@ -25,109 +25,73 @@ const Resume = () => {
   };
 
   const downloadResume = () => {
-    const resumeText = `YASWANI KUNDU
+    const resumeText = `KUNDU YASWANI
 Aspiring Python Developer | Full Stack Developer
-
-CONTACT INFORMATION
 Email: kunduyaswani@gmail.com | Phone: +91 8919345126
 LinkedIn: linkedin.com/in/kunduyaswani | GitHub: github.com/kunduyaswani
-Location: Tirupati, Andhra Pradesh, India
-
-________________________________________________________________________________
 
 PROFESSIONAL SUMMARY
-
-Passionate developer with a strong foundation in Computer Science Engineering, focused on building 
-modern, scalable, and user-friendly applications. Proven ability to solve complex problems through 
-clean code and continuous learning. Currently pursuing B.Tech in Computer Science Engineering with 
-active project development to achieve industry-ready expertise.
-
-________________________________________________________________________________
+Motivated and detail-oriented B.Tech Computer Science Engineering student with strong fundamentals in Python,
+Java, Web Development, and Database Management. Experienced in building web applications and developing
+software projects. Completed internships in Web Development and UI/UX Design. Passionate about
+problem-solving, software development, and continuous learning. Seeking an entry-level Python Developer or Full
+Stack Developer role to contribute technical skills and grow professionally.
 
 TECHNICAL SKILLS
-
-Programming Languages:        Python, Java, JavaScript, C
-Frontend Development:         HTML5, CSS3, Responsive Design, UI/UX Design
-Backend Development:          Python, PHP, REST APIs
-Databases:                    MySQL, MongoDB
-Tools & Platforms:            Git, GitHub, VS Code, Figma
-Key Competencies:             Object-Oriented Programming (OOP), Problem Solving, 
-                             Data Structures, Web Development, Database Design
-
-________________________________________________________________________________
+Programming Languages: Python, Java, JavaScript
+Frontend Technologies: HTML5, CSS3
+Backend Technologies: Python, PHP
+Databases: MySQL, MongoDB
+Tools & Platforms: Git, GitHub, VS Code, Figma
+Concepts: Object-Oriented Programming (OOP), Responsive Web Design, Problem Solving
 
 EDUCATION
-
 B.Tech – Computer Science Engineering
-Rajiv Gandhi Memorial College of Engineering and Technology (RGMCE), Nandyal
-CGPA: 7.2/10 | Expected Graduation: 2027
+Rajeev Gandhi Memorial College of Engineering and Technology, Nandyal (JNTUA, Anantapur)
+Expected Graduation: 2027 | CGPA: 7.2
 
-Diploma – Computer Science & Engineering
-Sri Venkateswara Polytechnic College (SVGP), Tirupati
-CGPA: 7.8/10
+Diploma
+Sri Venkateswara Government Polytechnic College, Tirupati (SBTET, Andhra Pradesh)
+2024 | CGPA: 7.8
 
-SSC – Secondary School Certificate
-A.P. Model School, Putlur
-2021 | CGPA: 9.8/10
-
-________________________________________________________________________________
+SSC
+A.P. Model School, Putlur (Board of Secondary Education, Andhra Pradesh)
+2021 | CGPA: 9.8
 
 PROJECTS
+Event Registration System — HTML, CSS, JavaScript, Python
+• Developed a web-based event registration platform for managing participant registrations and event details.
+• Designed responsive user interfaces using HTML, CSS, and JavaScript.
+• Implemented backend functionality using Python for handling registration data.
+• Focused on user-friendly design and efficient data management.
+GitHub: github.com/kunduyaswani/event_registration_project
 
-Event Registration System
-Technologies: HTML5, CSS3, JavaScript, Python, MySQL
-• Developed web-based platform for efficient event registration and management
-• Implemented user authentication and real-time event updates
-• Designed professional UI/UX with responsive layout
-• GitHub: github.com/kunduyaswani/event-registration-system
+INTERNSHIPS
+Web Development Intern — Codeon Technologies, Tirupati
+• Built responsive web interfaces using HTML, CSS, and JavaScript.
+• Collaborated on real-world frontend workflows and version control with Git.
 
-________________________________________________________________________________
-
-INTERNSHIPS & EXPERIENCE
-
-Web Development Intern
-Codeon Technologies, Tirupati
-• Developed responsive web applications using HTML5, CSS3, and JavaScript
-• Collaborated with design team to implement UI mockups
-• Fixed bugs and improved code quality
-
-UI/UX Design Intern
-Codeon Technologies, Tirupati
-• Designed user interfaces for web and mobile applications
-• Created wireframes and prototypes using design tools
-• Conducted user research and incorporated feedback
-
-________________________________________________________________________________
+UI/UX Design Intern — Codeon Technologies, Tirupati
+• Designed clean, user-centric interfaces in Figma focused on usability and visual hierarchy.
+• Produced wireframes and prototypes for client-facing web applications.
 
 CERTIFICATIONS
-
 • AWS Cloud Practitioner Certification
-• NPTEL Online Course – Soft Skills
-• NPTEL Online Course – Internet of Things
-
-________________________________________________________________________________
+• NPTEL – Soft Skills
+• NPTEL – Internet of Things
 
 ACHIEVEMENTS
-
 • Participated in coding competitions and technical events.
 • Engaged in bug-fixing and problem-solving activities.
 • Participated in college hackathons, enhancing teamwork and analytical skills.
 
-________________________________________________________________________________
-
 SOFT SKILLS
-
-Team Collaboration | Problem Solving | Communication | Time Management | 
-Adaptability | Quick Learning | Leadership | Attention to Detail
-
-________________________________________________________________________________
+Problem Solving • Team Collaboration • Communication • Time Management • Adaptability • Fast Learner
 
 CAREER OBJECTIVE
-
-Seeking opportunities as a Python Developer or Full Stack Developer where I can 
-contribute, learn, and grow while building impactful software solutions and 
-gaining real-world industry experience. Committed to delivering high-quality 
-code and becoming an industry-ready professional.
+Seeking an entry-level Python Developer or Full Stack Developer position where I can apply my technical
+knowledge, contribute to software development projects, and continuously enhance my professional skills while
+delivering value to the organization.
 `;
 
     const element = document.createElement('a');
@@ -224,9 +188,9 @@ code and becoming an industry-ready professional.
               <div className="space-y-1">
                 <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Technical Skills</h3>
                 <div className="space-y-1 text-xs text-gray-800">
-                  <div><span className="font-bold">Languages:</span> Python, Java, JavaScript, C</div>
-                  <div><span className="font-bold">Frontend:</span> HTML5, CSS3, Responsive Design</div>
-                  <div><span className="font-bold">Backend:</span> Python, PHP, REST APIs</div>
+                  <div><span className="font-bold">Languages:</span> Python, Java, JavaScript</div>
+                  <div><span className="font-bold">Frontend:</span> HTML5, CSS3</div>
+                  <div><span className="font-bold">Backend:</span> Python, PHP</div>
                   <div><span className="font-bold">Databases:</span> MySQL, MongoDB</div>
                   <div><span className="font-bold">Tools:</span> Git, GitHub, VS Code, Figma</div>
                 </div>
@@ -238,13 +202,13 @@ code and becoming an industry-ready professional.
                 <div className="space-y-2 text-xs">
                   <div className="border-l-3 border-blue-600 pl-3">
                     <p className="font-bold text-gray-900">B.Tech – Computer Science Engineering</p>
-                    <p className="text-gray-700">Rajiv Gandhi Memorial College of Engineering and Technology (RGMCE), Nandyal</p>
-                    <p className="text-gray-600">CGPA: 7.2/10 | Expected Graduation: 2027</p>
+                    <p className="text-gray-700">Rajeev Gandhi Memorial College of Engineering and Technology, Nandyal (JNTUA, Anantapur)</p>
+                    <p className="text-gray-600">Expected Graduation: 2027 | CGPA: 7.2</p>
                   </div>
                   <div className="border-l-3 border-blue-600 pl-3">
-                    <p className="font-bold text-gray-900">Diploma – Computer Science & Engineering</p>
-                    <p className="text-gray-700">Sri Venkateswara Polytechnic College (SVGP), Tirupati</p>
-                    <p className="text-gray-600">CGPA: 7.8/10</p>
+                    <p className="font-bold text-gray-900">Diploma</p>
+                    <p className="text-gray-700">Sri Venkateswara Government Polytechnic College, Tirupati (SBTET, Andhra Pradesh)</p>
+                    <p className="text-gray-600">2024 | CGPA: 7.8</p>
                   </div>
                   <div className="border-l-3 border-blue-600 pl-3">
                     <p className="font-bold text-gray-900">SSC – Secondary School Certificate</p>
@@ -257,24 +221,35 @@ code and becoming an industry-ready professional.
               {/* Projects */}
               <div className="space-y-1">
                 <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Projects</h3>
-                <div className="border-l-3 border-blue-600 pl-3 text-xs">
-                  <p className="font-bold text-gray-900">Event Registration System</p>
-                  <p className="text-gray-700"><span className="font-bold">Tech Stack:</span> HTML5, CSS3, JavaScript, Python, MySQL</p>
-                  <p className="text-gray-700">Web-based platform for efficient event registration and management with user authentication and real-time updates.</p>
+                <div className="border-l-3 border-blue-600 pl-3 text-xs space-y-1">
+                  <p className="font-bold text-gray-900">Event Registration System — HTML, CSS, JavaScript, Python</p>
+                  <ul className="text-gray-700 list-disc list-inside space-y-0">
+                    <li>Developed a web-based event registration platform for managing participant registrations and event details.</li>
+                    <li>Designed responsive user interfaces using HTML, CSS, and JavaScript.</li>
+                    <li>Implemented backend functionality using Python for handling registration data.</li>
+                    <li>Focused on user-friendly design and efficient data management.</li>
+                  </ul>
+                  <p className="text-gray-700"><span className="font-bold">GitHub:</span> github.com/kunduyaswani/event_registration_project</p>
                 </div>
               </div>
 
               {/* Internships */}
               <div className="space-y-1">
                 <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Internships</h3>
-                <div className="space-y-1 text-xs">
+                <div className="space-y-2 text-xs">
                   <div className="border-l-3 border-blue-600 pl-3">
-                    <p className="font-bold text-gray-900">Web Development Intern</p>
-                    <p className="text-gray-700">Codeon Technologies, Tirupati</p>
+                    <p className="font-bold text-gray-900">Web Development Intern — Codeon Technologies, Tirupati</p>
+                    <ul className="text-gray-700 list-disc list-inside space-y-0">
+                      <li>Built responsive web interfaces using HTML, CSS, and JavaScript.</li>
+                      <li>Collaborated on real-world frontend workflows and version control with Git.</li>
+                    </ul>
                   </div>
                   <div className="border-l-3 border-blue-600 pl-3">
-                    <p className="font-bold text-gray-900">UI/UX Design Intern</p>
-                    <p className="text-gray-700">Codeon Technologies, Tirupati</p>
+                    <p className="font-bold text-gray-900">UI/UX Design Intern — Codeon Technologies, Tirupati</p>
+                    <ul className="text-gray-700 list-disc list-inside space-y-0">
+                      <li>Designed clean, user-centric interfaces in Figma focused on usability and visual hierarchy.</li>
+                      <li>Produced wireframes and prototypes for client-facing web applications.</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -303,7 +278,7 @@ code and becoming an industry-ready professional.
               <div className="space-y-1">
                 <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">Soft Skills</h3>
                 <p className="text-xs text-gray-800">
-                  Team Collaboration • Problem Solving • Communication • Time Management • Adaptability • Quick Learning
+                  Problem Solving • Team Collaboration • Communication • Time Management • Adaptability • Fast Learner
                 </p>
               </div>
 
@@ -319,7 +294,7 @@ code and becoming an industry-ready professional.
 
           {/* Additional Actions */}
           <motion.div variants={itemVariants} className="text-center text-gray-400 text-sm">
-            <p>Click the download button above to save your resume as a text file</p>
+            <p>Click the download button above to save your resume as a PDF</p>
           </motion.div>
         </motion.div>
       </div>
