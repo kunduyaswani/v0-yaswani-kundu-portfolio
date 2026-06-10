@@ -141,12 +141,12 @@ export default function Hero() {
             </motion.a>
 
             <motion.a
-              href="/resume.pdf"
-              whileHover={{ scale: 1.05 }}
+              href="#resume"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(59, 130, 246, 0.5)' }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 rounded-lg border-2 border-gray-600 text-gray-300 hover:border-blue-500 hover:text-blue-400 font-semibold flex items-center gap-2 transition-all duration-300"
+              className="px-8 py-3 rounded-lg border-2 border-blue-600 text-blue-300 hover:border-blue-400 hover:text-blue-400 font-semibold flex items-center gap-2 transition-all duration-300"
             >
-              Resume <Download size={18} />
+              Download Resume <Download size={18} />
             </motion.a>
           </motion.div>
 

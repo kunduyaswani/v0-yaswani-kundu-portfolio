@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
   { href: '#education', label: 'Education' },
+  { href: '#resume', label: 'Resume' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -23,7 +24,7 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'skills', 'projects', 'education', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'education', 'resume', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {

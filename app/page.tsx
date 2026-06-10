@@ -4,6 +4,7 @@ import About from '@/components/about';
 import Skills from '@/components/skills';
 import Projects from '@/components/projects';
 import Education from '@/components/education';
+import Resume from '@/components/resume';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
 
@@ -27,6 +28,7 @@ export default function Page() {
       <Skills />
       <Projects />
       <Education />
+      <Resume />
       <Contact />
       <Footer />
     </main>
