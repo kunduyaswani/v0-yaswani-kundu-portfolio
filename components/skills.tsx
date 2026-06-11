@@ -19,7 +19,7 @@ const SKILL_CATEGORIES = [
   {
     title: 'Backend Development',
     icon: Wrench,
-    skills: ['Python', 'PHP', 'RESTful APIs'],
+    skills: ['Python', 'PHP'],
     color: 'from-orange-600 to-red-400',
   },
   {
