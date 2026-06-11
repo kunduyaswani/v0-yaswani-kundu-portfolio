@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, GitBranch, Share2, Send } from 'lucide-react';
-import { useState } from 'react';
+import { Mail, Phone, MapPin, GitBranch, Share2, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,22 +11,98 @@ export default function Contact() {
     email: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '');
+  }, []);
+
+  const validateForm = () => {
+    const newErrors: { name?: string; email?: string; message?: string } = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error for this field when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to a backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setLoading(true);
+    setStatus('idle');
+
+    try {
+      const submissionDate = new Date().toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,
+      });
+
+      const templateParams = {
+        to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'kunduyaswani@gmail.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        submission_date: submissionDate,
+      };
+
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+        templateParams
+      );
+
+      if (response.status === 200) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => {
+          setStatus('idle');
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setStatus('error');
+      setErrorMessage('Failed to send message. Please try again later.');
+      setTimeout(() => {
+        setStatus('idle');
+      }, 5000);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const containerVariants = {
@@ -147,10 +224,13 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-blue-900/20 border border-cyan-500/30 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:bg-blue-900/40 transition-all duration-300"
+                  disabled={loading}
+                  className={`w-full px-4 py-3 rounded-lg bg-blue-900/20 border text-white placeholder-gray-500 focus:outline-none focus:bg-blue-900/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                    errors.name ? 'border-red-500 focus:border-red-500' : 'border-cyan-500/30 focus:border-cyan-500'
+                  }`}
                   placeholder="Your Name"
                 />
+                {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
               </div>
 
               <div>
@@ -163,10 +243,13 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-blue-900/20 border border-cyan-500/30 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:bg-blue-900/40 transition-all duration-300"
+                  disabled={loading}
+                  className={`w-full px-4 py-3 rounded-lg bg-blue-900/20 border text-white placeholder-gray-500 focus:outline-none focus:bg-blue-900/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                    errors.email ? 'border-red-500 focus:border-red-500' : 'border-cyan-500/30 focus:border-cyan-500'
+                  }`}
                   placeholder="your@email.com"
                 />
+                {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
               </div>
 
               <div>
@@ -178,31 +261,64 @@ export default function Contact() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
+                  disabled={loading}
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-blue-900/20 border border-cyan-500/30 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:bg-blue-900/40 transition-all duration-300 resize-none"
+                  className={`w-full px-4 py-3 rounded-lg bg-blue-900/20 border text-white placeholder-gray-500 focus:outline-none focus:bg-blue-900/40 transition-all duration-300 resize-none disabled:opacity-50 disabled:cursor-not-allowed ${
+                    errors.message ? 'border-red-500 focus:border-red-500' : 'border-cyan-500/30 focus:border-cyan-500'
+                  }`}
                   placeholder="Your message..."
                 />
+                {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
               </div>
 
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 217, 255, 0.5)' }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={!loading ? { scale: 1.05, boxShadow: '0 0 30px rgba(0, 217, 255, 0.5)' } : {}}
+                whileTap={!loading ? { scale: 0.95 } : {}}
                 type="submit"
-                className="w-full py-3 px-6 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold flex items-center justify-center gap-2 transition-all duration-300 neon-border"
+                disabled={loading}
+                className="w-full py-3 px-6 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold flex items-center justify-center gap-2 transition-all duration-300 neon-border disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send size={18} />
-                {submitted ? 'Message Sent!' : 'Send Message'}
+                {loading ? (
+                  <>
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                      className="inline-block"
+                    >
+                      <Send size={18} />
+                    </motion.div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send size={18} />
+                    Send Message
+                  </>
+                )}
               </motion.button>
 
-              {submitted && (
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-cyan-400 text-center font-semibold"
+              {status === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="p-4 rounded-lg bg-green-500/10 border border-green-500/30 flex items-center gap-3"
                 >
-                  Thanks for reaching out! I&apos;ll get back to you soon.
-                </motion.p>
+                  <CheckCircle className="text-green-400 flex-shrink-0" size={20} />
+                  <p className="text-green-400 font-semibold">Message sent successfully! I&apos;ll get back to you soon.</p>
+                </motion.div>
+              )}
+
+              {status === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center gap-3"
+                >
+                  <AlertCircle className="text-red-400 flex-shrink-0" size={20} />
+                  <p className="text-red-400 font-semibold">{errorMessage}</p>
+                </motion.div>
               )}
             </form>
           </motion.div>
